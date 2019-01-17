@@ -34,9 +34,13 @@ const ticketSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     }
+
+    // {
+    //     timestamps: true,
+    // }
 });
 
-const Ticket = module.exports = mongoose.model('Ticket', ticketSchema);
+var Ticket = module.exports = mongoose.model('Ticket', ticketSchema);
 
 
 // Get all Tickets
@@ -67,5 +71,5 @@ module.exports.updateTicket = function(id, ticket, options, callback) {
         created_date: ticket.created_date,
         updated_date: ticket.updated_date
     };
-    Book.findOneAndUpdate(query, update, options, callback);
+    Ticket.findOneAndUpdate(query, update, options, callback);
 };

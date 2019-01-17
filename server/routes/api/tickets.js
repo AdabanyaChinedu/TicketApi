@@ -6,21 +6,20 @@ const Ticket = require('../../models/ticket');
 
 
 // Get tickets
-router.get('/', (req, res) => {
+router.get('/', function(req, res) {
     Ticket.getTickets(function(err, tickets) {
         if (err) {
             throw err;
         }
         res.json(tickets);
-        // Ticket.find()
-        //     .then(tickets => res.json(tickets))
+
     });
 });
 
 
 //Get tickets by id
 router.get('/:_id', function(req, res) {
-    Ticket.getBookById(req.params._id, function(err, ticket) {
+    Ticket.getTicketById(req.params._id, function(err, ticket) {
         if (err) {
             throw err;
         }
@@ -52,7 +51,6 @@ router.put('/:_id', function(req, res) {
             throw err;
         }
         res.json(ticket);
-
     });
 
 });
