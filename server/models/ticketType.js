@@ -7,7 +7,7 @@ const ticketTypeSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    ticket_Type: {
+    ticketType: {
         type: String,
         required: true
     }

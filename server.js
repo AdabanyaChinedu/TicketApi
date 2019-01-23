@@ -9,9 +9,7 @@ const authController = require('./server/auth/AuthController');
 
 
 app.use(bodyParser.json());
-
-// const Tickets = require('./server/models/ticket');
-// const TicketTypes = require('./server/models/ticketType');
+app.use(bodyParser.urlencoded({ extended: false }));
 
 //DB Config
 const db = require('./server/config/config').mongoURI;

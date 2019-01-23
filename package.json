@@ -11,7 +11,8 @@
         "body-parser": "*",
         "express": "*",
         "jsonwebtoken": "^8.4.0",
-        "mongoose": "*"
+        "mongoose": "*",
+        "mongoose-auto-increment": "^5.0.1"
     },
     "repository": {
         "type": "git",

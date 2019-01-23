@@ -1,4 +1,5 @@
 const express = require('express');
+const VerifyToken = require('../../auth/VerifyToken');
 const router = express.Router();
 
 

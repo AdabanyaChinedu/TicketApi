@@ -1,19 +1,22 @@
+var User = require("./user");
 const mongoose = require('mongoose');
 
 //Book Schema
 const ticketSchema = mongoose.Schema({
+
+    ticketId: {
+        type: Number,
+        required: true
+    },
     userId: {
-        type: String,
+        type: Number,
         required: true
     },
     title: {
         type: String,
         required: true
     },
-    ticketId: {
-        type: String,
-        required: true
-    },
+
     ticketType: {
         type: String,
         required: true
@@ -49,7 +52,7 @@ module.exports.getTickets = function(callback, limit) {
     }
     // Get Ticket
 module.exports.getTicketById = function(id, callback) {
-    Ticket.findById(id, callback);
+    Ticket.where({ ticketId: id }).findOne(callback);
 }
 
 // Add Ticket
@@ -59,11 +62,11 @@ module.exports.addTicket = function(ticket, callback) {
 
 // Update Tickets or Edit Ticket
 module.exports.updateTicket = function(id, ticket, options, callback) {
-    var query = { _id: id };
+    var query = { userId: id };
     var update = {
-        userId: { id },
+        ticketId: Ticket.length + 1,
+        userId: query.userId,
         title: ticket.title,
-        ticketId: ticket.ticketId,
         ticketType: ticket.ticketType,
         description: ticket.description,
         author: ticket.author,
